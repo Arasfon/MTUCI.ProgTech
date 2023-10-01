@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Task1">
+      <UniqueIdentifier>{f5f50391-48fd-4e33-ae21-dad0f59ee7d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task2">
+      <UniqueIdentifier>{a58a9a19-1d13-449c-97f6-df1204e3d299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{0ff7bcf7-3649-48ff-b73a-781c0047095b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1AssignmentForm.h">
+      <Filter>Task1</Filter>
+    </ClInclude>
+    <ClInclude Include="Task1SolutionForm.h">
+      <Filter>Task1</Filter>
+    </ClInclude>
+    <ClInclude Include="Task2AssignmentForm.h">
+      <Filter>Task2</Filter>
+    </ClInclude>
+    <ClInclude Include="Task2SolutionForm.h">
+      <Filter>Task2</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleForm.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Labs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Task1AssignmentForm.cpp">
+      <Filter>Task1</Filter>
+    </ClCompile>
+    <ClCompile Include="Task1SolutionForm.cpp">
+      <Filter>Task1</Filter>
+    </ClCompile>
+    <ClCompile Include="Task2AssignmentForm.cpp">
+      <Filter>Task2</Filter>
+    </ClCompile>
+    <ClCompile Include="Task2SolutionForm.cpp">
+      <Filter>Task2</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleForm.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Task2AssignmentFormula.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
