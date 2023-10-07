@@ -27,5 +27,8 @@
     <CopyFileToFolders Include="Interop\Interop.ADOX.6.0.dll">
       <Filter>Interop</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="Interop\Interop.Microsoft.Office.Interop.Word.8.7.dll">
+      <Filter>Interop</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

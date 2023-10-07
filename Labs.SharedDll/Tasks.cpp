@@ -5,6 +5,8 @@ using namespace System::IO;
 using namespace System::Data::OleDb;
 using namespace System::Runtime::InteropServices;
 
+using namespace Microsoft::Office::Interop;
+
 using namespace Labs::SharedDll;
 
 // Лабораторная работа №1
@@ -157,4 +159,64 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
 
         command.ExecuteNonQuery();
     }
+}
+
+// Лабораторная работа №4
+
+void Tasks::FillWordDocument(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
+{
+    Object^ typeMissing = Type::Missing;
+    Object^ wdWord9TableBehavior = Word::WdDefaultTableBehavior::wdWord9TableBehavior;
+    Object^ wdAutoFitContent = Word::WdAutoFitBehavior::wdAutoFitContent;
+    Object^ wdGoToLine = Word::WdGoToItem::wdGoToLine;
+    Object^ wdGoToLast = Word::WdGoToDirection::wdGoToLast;
+
+    auto wordApplication = gcnew Word::ApplicationClass();
+    auto wordDocument = wordApplication->Documents->Add(typeMissing, typeMissing, typeMissing, typeMissing);
+
+    wordDocument->PageSetup->Orientation = Word::WdOrientation::wdOrientLandscape;
+
+    wordDocument->PageSetup->TopMargin = wordApplication->CentimetersToPoints(1.25);
+    wordDocument->PageSetup->RightMargin = wordApplication->CentimetersToPoints(1.25);
+    wordDocument->PageSetup->BottomMargin = wordApplication->CentimetersToPoints(1.25);
+    wordDocument->PageSetup->LeftMargin = wordApplication->CentimetersToPoints(1.25);
+
+    wordApplication->Selection->TypeText(L"Исходный массив:");
+    wordApplication->Selection->TypeParagraph();
+
+    auto wordTable = wordDocument->Tables->Add(wordApplication->Selection->Range, 2, sourceArrayLength, wdWord9TableBehavior, wdAutoFitContent);
+
+    for (int i = 0; i < sourceArrayLength; ++i)
+    {
+        wordTable->Cell(1, i + 1)->Range->InsertAfter(String::Format(L"[{0}]", i));
+        wordTable->Cell(2, i + 1)->Range->InsertAfter(sourceArray[i].ToString(L"F3"));
+    }
+
+    wordApplication->Selection->GoTo(wdGoToLine, wdGoToLast, typeMissing, typeMissing);
+    wordApplication->Selection->TypeParagraph();
+    wordApplication->Selection->TypeText(L"Трансформированный массив:");
+    wordApplication->Selection->TypeParagraph();
+
+    wordTable = wordDocument->Tables->Add(wordApplication->Selection->Range, 2, transformedArrayLength, wdWord9TableBehavior, wdAutoFitContent);
+
+    for (int i = 0; i < transformedArrayLength; ++i)
+    {
+        wordTable->Cell(1, i + 1)->Range->InsertAfter(String::Format(L"[{0}]", i));
+        wordTable->Cell(2, i + 1)->Range->InsertAfter(transformedArray[i].ToString(L"F3"));
+    }
+
+    wordDocument->Content->Font->Name = L"Times New Roman";
+    wordDocument->Content->Font->Size = 12;
+
+    wordApplication->Selection->GoTo(wdGoToLine, wdGoToLast, typeMissing, typeMissing);
+
+    Object^ filename = Path::Combine(Directory::GetCurrentDirectory(), L"1dim_array.docx");
+    wordDocument->SaveAs(filename, typeMissing,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing, typeMissing);
+
+    wordApplication->Visible = true;
 }

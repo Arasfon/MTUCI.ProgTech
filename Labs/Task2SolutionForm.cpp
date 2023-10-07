@@ -47,6 +47,7 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
     Tasks::OutputArray(ResultDataGridView, trasformedArr, m);
 
     Tasks::FillAccessDb(arr, trasformedArr, n, m);
+    Tasks::FillWordDocument(arr, trasformedArr, n, m);
 
     delete[] arr;
     delete[] trasformedArr;

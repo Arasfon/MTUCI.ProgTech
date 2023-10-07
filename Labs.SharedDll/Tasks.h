@@ -52,5 +52,10 @@ namespace Labs::SharedDll
 
         // Заполняет таблицы в базе данных Microsoft Access содержимым исходного и трансформированного одномерного массива
         static void FillAccessDb(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength);
+
+        // Лабораторная работа №4
+
+        // Заполняет таблицы в документе Microsoft Word содержимым исходного и трансформированного одномерного массива
+        static void FillWordDocument(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength);
     };
 }
