@@ -27,15 +27,12 @@ namespace Labs::SharedDll
 
         // Лабораторная работа №2
 
-        // enter_mas
         // Генерирует массив из случайных вещественных чисел
         static double* GenerateArray(int length);
 
-        // output_mas
         // Выводит массив в DataGridView
         static void OutputArray(DataGridView^ dataGridView, double* arr, const int length);
 
-        // set_mas
         // Трансформирует массив, получая новый из тех элементов исходного массива, значения которых по модулю меньше найденного максимального положительного элемента.
         static double* TransformArray(const double* arr, const int length, const double maxPositive, int% transformedLength);
 
