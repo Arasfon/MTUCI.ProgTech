@@ -31,7 +31,7 @@ void Task1SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
         !Tasks::ReadDouble(X5TextBox, x5) ||
         !Tasks::ReadDouble(Y5TextBox, y5))
     {
-        MessageBox::Show("В поля ввода допустимо вводить только числа.", "Ошибка",
+        MessageBox::Show(L"В поля ввода допустимо вводить только числа.", L"Ошибка",
             MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }

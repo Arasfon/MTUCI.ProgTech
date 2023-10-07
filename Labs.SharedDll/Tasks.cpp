@@ -16,7 +16,7 @@ bool Tasks::ReadDouble(TextBox^ textBox, double% value)
 
 void Tasks::WriteDouble(double value, TextBox^ textBox)
 {
-    textBox->Text = value.ToString("F3");
+    textBox->Text = value.ToString(L"F3");
 }
 
 double Tasks::PentagonArea(const double x1, const double y1,
@@ -56,8 +56,8 @@ void Tasks::OutputArray(DataGridView^ dataGridView, double* arr, const int lengt
 
     for (int i = 0; i < length; i++)
     {
-        dataGridView->Rows[0]->Cells[i]->Value = String::Format("[{0}]", i);
-        dataGridView->Rows[1]->Cells[i]->Value = arr[i].ToString("F3");
+        dataGridView->Rows[0]->Cells[i]->Value = String::Format(L"[{0}]", i);
+        dataGridView->Rows[1]->Cells[i]->Value = arr[i].ToString(L"F3");
     }
 }
 
@@ -92,8 +92,8 @@ double Tasks::GetMaxPositive(const double* arr, const int n)
 
 void Tasks::CreateAccessDbFile()
 {
-    if (File::Exists("1dim_array.accdb"))
-        File::Delete("1dim_array.accdb");
+    if (File::Exists(L"1dim_array.accdb"))
+        File::Delete(L"1dim_array.accdb");
 
     ADOX::CatalogClass^ catalog = gcnew ADOX::CatalogClass();
     catalog->Create(ConnectionString);
@@ -107,14 +107,14 @@ void Tasks::CreateAccessDbTables()
     OleDbConnection connection(ConnectionString);
     connection.Open();
 
-    OleDbCommand command(R"(
+    OleDbCommand command(LR"(
         CREATE TABLE [SourceArray] (
         [Id] LONG NOT NULL PRIMARY KEY,
         [Value] DOUBLE NOT NULL);)", %connection);
 
     command.ExecuteNonQuery();
 
-    command.CommandText = R"(
+    command.CommandText = LR"(
         CREATE TABLE [TransformedArray] (
         [Id] LONG NOT NULL PRIMARY KEY,
         [Value] DOUBLE NOT NULL);)";
@@ -124,7 +124,7 @@ void Tasks::CreateAccessDbTables()
 
 void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArray, int sourceArrayLength, int transformedArrayLength)
 {
-    if (!File::Exists("1dim_array.accdb"))
+    if (!File::Exists(L"1dim_array.accdb"))
         return;
 
     OleDbConnection connection(ConnectionString);
@@ -132,12 +132,12 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
 
     OleDbCommand command(String::Empty, %connection);
 
-    command.CommandText = "DELETE FROM [SourceArray]";
+    command.CommandText = L"DELETE FROM [SourceArray]";
     command.ExecuteNonQuery();
 
     for (int i = 0; i < sourceArrayLength; ++i)
     {
-        command.CommandText = String::Format(R"(
+        command.CommandText = String::Format(LR"(
             INSERT INTO [SourceArray]
             ([Id], [Value]) VALUES
             ({0}, {1});)", i, sourceArray[i]);
@@ -145,12 +145,12 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
         command.ExecuteNonQuery();
     }
 
-    command.CommandText = "DELETE FROM [TransformedArray]";
+    command.CommandText = L"DELETE FROM [TransformedArray]";
     command.ExecuteNonQuery();
 
     for (int i = 0; i < transformedArrayLength; ++i)
     {
-        command.CommandText = String::Format(R"(
+        command.CommandText = String::Format(LR"(
             INSERT INTO [TransformedArray]
             ([Id], [Value]) VALUES
             ({0}, {1});)", i, transformedArray[i]);

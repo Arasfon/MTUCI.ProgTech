@@ -20,9 +20,9 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
 {
     int n, m;
 
-    if (!Int32::TryParse(Interaction::InputBox("Введите количество элементов в массиве", "Ввод", "10", -1, -1), n))
+    if (!Int32::TryParse(Interaction::InputBox(L"Введите количество элементов в массиве", L"Ввод", L"10", -1, -1), n))
     {
-        MessageBox::Show("Введите целое число", "Ошибка",
+        MessageBox::Show(L"Введите целое число", L"Ошибка",
             MessageBoxButtons::OK, MessageBoxIcon::Error);
         return;
     }
@@ -34,14 +34,14 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
 
     if (maxPositive == 0)
     {
-        MessageBox::Show("В массиве нет положительных чисел", "Ошибка",
+        MessageBox::Show(L"В массиве нет положительных чисел", L"Ошибка",
             MessageBoxButtons::OK, MessageBoxIcon::Error);
-        MaxPositiveLabel->Text = "";
+        MaxPositiveLabel->Text = L"";
         ResultDataGridView->RowCount = 0;
         return;
     }
 
-    MaxPositiveLabel->Text = String::Format("Макс. положительное число: {0:F3}", maxPositive);
+    MaxPositiveLabel->Text = String::Format(L"Макс. положительное число: {0:F3}", maxPositive);
 
     double* trasformedArr = Tasks::TransformArray(arr, n, maxPositive, m);
     Tasks::OutputArray(ResultDataGridView, trasformedArr, m);
@@ -58,11 +58,11 @@ void Task2SolutionForm::CreateDbButton_Click(Object^ sender, EventArgs^ e)
     {
         Tasks::CreateAccessDbFile();
         Tasks::CreateAccessDbTables();
-        MessageBox::Show("База данных создана и инициализирована.", "Успешное создание базы данных", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show(L"База данных создана и инициализирована.", L"Успешное создание базы данных", MessageBoxButtons::OK, MessageBoxIcon::Information);
     }
     catch (Exception^ ex)
     {
-        MessageBox::Show("Не удалось создать базу данных Microsoft Access:\n" + ex->Message, "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        MessageBox::Show(L"Не удалось создать базу данных Microsoft Access:\n" + ex->Message, L"Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
     }
 }
 
