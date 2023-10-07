@@ -4,7 +4,9 @@
 #include "TitleForm.h"
 
 using namespace System::IO;
+
 using namespace Microsoft::VisualBasic;
+
 using namespace Labs;
 using namespace Labs::SharedDll;
 

@@ -4,6 +4,7 @@ using namespace System;
 using namespace System::IO;
 using namespace System::Data::OleDb;
 using namespace System::Runtime::InteropServices;
+
 using namespace Labs::SharedDll;
 
 // Лабораторная работа №1
