@@ -51,6 +51,6 @@ namespace Labs::SharedDll
         static void CreateAccessDbTables();
 
         // Заполняет таблицы в базе данных Microsoft Access содержимым исходного и трансформированного одномерного массива
-        static void FillAccessDb(const double* sourceArray, const double* transformedArray, int sourceArrayLength, int transformedArrayLength);
+        static void FillAccessDb(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength);
     };
 }

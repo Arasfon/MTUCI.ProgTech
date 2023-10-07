@@ -122,7 +122,7 @@ void Tasks::CreateAccessDbTables()
     command.ExecuteNonQuery();
 }
 
-void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArray, int sourceArrayLength, int transformedArrayLength)
+void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
 {
     if (!File::Exists(L"1dim_array.accdb"))
         return;
