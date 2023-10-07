@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Interop">
+      <UniqueIdentifier>{96c43f2d-5d6b-4dba-b547-6ce8f46e636c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tasks.h">
@@ -23,5 +26,10 @@
     <ClCompile Include="Tasks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Interop\Interop.ADOX.6.0.dll">
+      <Filter>Interop</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
