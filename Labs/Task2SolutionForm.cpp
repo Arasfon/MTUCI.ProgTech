@@ -56,6 +56,7 @@ void Task2SolutionForm::CreateDbButton_Click(Object^ sender, EventArgs^ e)
     {
         Tasks::CreateAccessDbFile();
         Tasks::CreateAccessDbTables();
+        MessageBox::Show("База данных создана и инициализирована.", "Успешное создание базы данных", MessageBoxButtons::OK, MessageBoxIcon::Information);
     }
     catch (Exception^ ex)
     {
