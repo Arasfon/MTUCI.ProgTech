@@ -1,6 +1,7 @@
 #include "Tasks.h"
 
 using namespace System;
+using namespace System::Globalization;
 using namespace System::IO;
 using namespace System::Data::OleDb;
 using namespace System::Runtime::InteropServices;
@@ -142,7 +143,7 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
         command.CommandText = String::Format(LR"(
             INSERT INTO [SourceArray]
             ([Id], [Value]) VALUES
-            ({0}, {1});)", i, sourceArray[i]);
+            ({0}, {1});)", i, sourceArray[i].ToString(CultureInfo::InvariantCulture));
 
         command.ExecuteNonQuery();
     }
@@ -155,7 +156,7 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
         command.CommandText = String::Format(LR"(
             INSERT INTO [TransformedArray]
             ([Id], [Value]) VALUES
-            ({0}, {1});)", i, transformedArray[i]);
+            ({0}, {1});)", i, transformedArray[i].ToString(CultureInfo::InvariantCulture));
 
         command.ExecuteNonQuery();
     }
