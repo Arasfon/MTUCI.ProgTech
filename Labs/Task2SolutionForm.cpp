@@ -1,5 +1,7 @@
 ﻿#include "pch.h"
 
+#include <algorithm>
+
 #include "Task2SolutionForm.h"
 #include "TitleForm.h"
 
@@ -49,8 +51,34 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
     Tasks::FillAccessDb(arr, trasformedArr, n, m);
     Tasks::FillWordDocument(arr, trasformedArr, n, m);
 
-    delete[] arr;
     delete[] trasformedArr;
+
+    // Лабораторная работа №5
+
+    double itemToRemove;
+
+    if (!Double::TryParse(Interaction::InputBox(L"Введите элемент, который следуюет удалить", L"Ввод", L"10", -1, -1), itemToRemove))
+    {
+        MessageBox::Show(L"Введите число с плавающей запятой", L"Ошибка",
+            MessageBoxButtons::OK, MessageBoxIcon::Error);
+        RemovedArrayItemDataGridView->RowCount = 0;
+        SortedArrayDataGridView->RowCount = 0;
+        return;
+    }
+
+    double* removedItemArray = new double[n];
+    std::copy(&arr[0], &arr[n], removedItemArray);
+    int removedItemArrayLength = n;
+
+    Tasks::RemoveArrayItem(itemToRemove, removedItemArray, removedItemArrayLength);
+    Tasks::OutputArray(RemovedArrayItemDataGridView, removedItemArray, removedItemArrayLength);
+
+    delete[] removedItemArray;
+
+    Tasks::OptimizedBubbleSort(arr, n);
+    Tasks::OutputArray(SortedArrayDataGridView, arr, n);
+
+    delete[] arr;
 }
 
 void Task2SolutionForm::CreateDbButton_Click(Object^ sender, EventArgs^ e)

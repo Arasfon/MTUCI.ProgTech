@@ -220,3 +220,43 @@ void Tasks::FillWordDocument(const double* sourceArray, const double* transforme
 
     wordApplication->Visible = true;
 }
+
+// Лабораторная работа №5
+
+void Tasks::RemoveArrayItem(const double item, double* arr, int& arrayLength)
+{
+    int offset = 0;
+
+    for (int i = 0; i < arrayLength; i++)
+    {
+        if (offset == 0 && Math::Round(arr[i], 3) == item)
+            offset++;
+
+        arr[i] = arr[i + offset];
+    }
+
+    arrayLength -= offset;
+}
+
+void Tasks::OptimizedBubbleSort(double* arr, const int arrayLength)
+{
+    for (int i = 0; i < arrayLength; i++)
+    {
+        bool hasChanged = false;
+
+        for (int j = 0; j < arrayLength - 1 - i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                const double temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+
+                hasChanged = true;
+            }
+        }
+
+        if (!hasChanged)
+            break;
+    }
+}

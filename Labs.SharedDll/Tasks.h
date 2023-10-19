@@ -57,5 +57,13 @@ namespace Labs::SharedDll
 
         // Заполняет таблицы в документе Microsoft Word содержимым исходного и трансформированного одномерного массива
         static void FillWordDocument(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength);
+
+        // Лабораторная работа №5
+
+        // Удаляет первое вхождение элемента по значению из массива
+        static void RemoveArrayItem(const double item, double* arr, int& arrayLength);
+
+        // Сортирует массив с помощью оптимизированной сортировки пузырьком
+        static void OptimizedBubbleSort(double* arr, const int arrayLength);
     };
 }

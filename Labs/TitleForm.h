@@ -159,7 +159,7 @@ namespace Labs {
 			this->Task2Button->Name = L"Task2Button";
 			this->Task2Button->Size = System::Drawing::Size(244, 42);
 			this->Task2Button->TabIndex = 6;
-			this->Task2Button->Text = L"Лабораторные работы №2–4";
+			this->Task2Button->Text = L"Лабораторные работы №2–5";
 			this->Task2Button->UseVisualStyleBackColor = true;
 			this->Task2Button->Click += gcnew System::EventHandler(this, &TitleForm::Task2Button_Click);
 			// 
