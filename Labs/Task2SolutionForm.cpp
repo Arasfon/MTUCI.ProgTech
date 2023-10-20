@@ -57,7 +57,7 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
 
     double itemToRemove;
 
-    if (!Double::TryParse(Interaction::InputBox(L"Введите элемент, который следуюет удалить", L"Ввод", L"10", -1, -1), itemToRemove))
+    if (!Double::TryParse(Interaction::InputBox(L"Введите элемент, который следует удалить", L"Ввод", L"10", -1, -1), itemToRemove))
     {
         MessageBox::Show(L"Введите число с плавающей запятой", L"Ошибка",
             MessageBoxButtons::OK, MessageBoxIcon::Error);
