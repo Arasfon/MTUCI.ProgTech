@@ -40,7 +40,8 @@ namespace Labs {
 	private: System::Windows::Forms::Button^ CalculateButton;
 	private: System::Windows::Forms::Label^ MaxPositiveLabel;
 	private: System::Windows::Forms::Button^ CreateDbButton;
-	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ RemovedItemTitleLabel;
+
 	private: System::Windows::Forms::DataGridView^ RemovedArrayItemDataGridView;
 
 
@@ -78,7 +79,7 @@ namespace Labs {
 			this->CalculateButton = (gcnew System::Windows::Forms::Button());
 			this->MaxPositiveLabel = (gcnew System::Windows::Forms::Label());
 			this->CreateDbButton = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->RemovedItemTitleLabel = (gcnew System::Windows::Forms::Label());
 			this->RemovedArrayItemDataGridView = (gcnew System::Windows::Forms::DataGridView());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SortedArrayDataGridView = (gcnew System::Windows::Forms::DataGridView());
@@ -204,14 +205,14 @@ namespace Labs {
 			this->CreateDbButton->UseVisualStyleBackColor = true;
 			this->CreateDbButton->Click += gcnew System::EventHandler(this, &Task2SolutionForm::CreateDbButton_Click);
 			// 
-			// label3
+			// RemovedItemTitleLabel
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 181);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(257, 15);
-			this->label3->TabIndex = 9;
-			this->label3->Text = L"Исходный массив без выбранного элемента:";
+			this->RemovedItemTitleLabel->AutoSize = true;
+			this->RemovedItemTitleLabel->Location = System::Drawing::Point(12, 181);
+			this->RemovedItemTitleLabel->Name = L"RemovedItemTitleLabel";
+			this->RemovedItemTitleLabel->Size = System::Drawing::Size(298, 15);
+			this->RemovedItemTitleLabel->TabIndex = 9;
+			this->RemovedItemTitleLabel->Text = L"Исходный массив после удаления из него элемента:";
 			// 
 			// RemovedArrayItemDataGridView
 			// 
@@ -244,9 +245,9 @@ namespace Labs {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(12, 267);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(213, 15);
+			this->label4->Size = System::Drawing::Size(482, 15);
 			this->label4->TabIndex = 11;
-			this->label4->Text = L"Исходный отсортированный массив:";
+			this->label4->Text = L"Исходный массив, отсортированный оптимизированным методом простого обмена:";
 			// 
 			// SortedArrayDataGridView
 			// 
@@ -281,7 +282,7 @@ namespace Labs {
 			this->ClientSize = System::Drawing::Size(584, 391);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->SortedArrayDataGridView);
-			this->Controls->Add(this->label3);
+			this->Controls->Add(this->RemovedItemTitleLabel);
 			this->Controls->Add(this->RemovedArrayItemDataGridView);
 			this->Controls->Add(this->CreateDbButton);
 			this->Controls->Add(this->MaxPositiveLabel);

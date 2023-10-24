@@ -73,6 +73,8 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
     Tasks::RemoveArrayItem(itemToRemove, removedItemArray, removedItemArrayLength);
     Tasks::OutputArray(RemovedArrayItemDataGridView, removedItemArray, removedItemArrayLength);
 
+    RemovedItemTitleLabel->Text = String::Format("Исходный массив после удаления из него элемента {0}:", itemToRemove);
+
     delete[] removedItemArray;
 
     Tasks::OptimizedBubbleSort(arr, n);
