@@ -261,3 +261,333 @@ void Tasks::OptimizedBubbleSort(double* arr, const int arrayLength)
             break;
     }
 }
+
+// Лабораторная работа №6
+
+void Tasks::FillExcelBook(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
+{
+    Object^ typeMissing = Type::Missing;
+
+    auto excelApplication = gcnew Excel::ApplicationClass();
+    auto excelWorkbook = excelApplication->Workbooks->Add(typeMissing);
+
+    excelApplication->Cells[1, 1] = L"Исходный массив";
+    for (int i = 0; i < sourceArrayLength; i++)
+    {
+        excelApplication->Cells[2, i + 1] = String::Format(L"[{0}]", i);
+        excelApplication->Cells[3, i + 1] = sourceArray[i].ToString(L"F3");
+    }
+
+    excelApplication->Cells[5, 1] = L"Трансформированный массив";
+    for (int i = 0; i < transformedArrayLength; i++)
+    {
+        excelApplication->Cells[6, i + 1] = String::Format(L"[{0}]", i);
+        excelApplication->Cells[7, i + 1] = transformedArray[i].ToString(L"F3");
+    }
+
+    // Interop hell
+
+    auto excelActiveSheet = safe_cast<Excel::Worksheet^>(excelWorkbook->ActiveSheet);
+
+    // Macro code
+
+    #pragma region "Format" macro code
+
+        String^ formatMacroVbaCode = String::Format(LR"(
+Private Sub FormatButton_Click()
+Application.ScreenUpdating = False
+Range("A2", ActiveSheet.Cells(3, {0})).Select
+With Selection
+    .HorizontalAlignment = xlCenter
+    .VerticalAlignment = xlBottom
+    .WrapText = False
+    .Orientation = 0
+    .AddIndent = False
+    .IndentLevel = 0
+    .ShrinkToFit = False
+    .ReadingOrder = xlContext
+    .MergeCells = False
+End With
+Range("A6", ActiveSheet.Cells(7, {1})).Select
+With Selection
+    .HorizontalAlignment = xlCenter
+    .VerticalAlignment = xlBottom
+    .WrapText = False
+    .Orientation = 0
+    .AddIndent = False
+    .IndentLevel = 0
+    .ShrinkToFit = False
+    .ReadingOrder = xlContext
+    .MergeCells = False
+End With
+Range("A1", ActiveSheet.Cells(1, {0})).Select
+With Selection
+    .HorizontalAlignment = xlCenter
+    .VerticalAlignment = xlBottom
+    .WrapText = False
+    .Orientation = 0
+    .AddIndent = False
+    .IndentLevel = 0
+    .ShrinkToFit = False
+    .ReadingOrder = xlContext
+    .MergeCells = False
+End With
+Selection.Merge
+Range("A5", ActiveSheet.Cells(5, {1})).Select
+With Selection
+    .HorizontalAlignment = xlCenter
+    .VerticalAlignment = xlBottom
+    .WrapText = False
+    .Orientation = 0
+    .AddIndent = False
+    .IndentLevel = 0
+    .ShrinkToFit = False
+    .ReadingOrder = xlContext
+    .MergeCells = False
+End With
+Selection.Merge
+Range("A1", ActiveSheet.Cells(3, {0})).Select
+Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+With Selection.Borders(xlEdgeLeft)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeTop)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeBottom)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeRight)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideVertical)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideHorizontal)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+Range("A5", ActiveSheet.Cells(7, {1})).Select
+Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+With Selection.Borders(xlEdgeLeft)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeTop)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeBottom)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlEdgeRight)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideVertical)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideHorizontal)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+Range("A1", ActiveSheet.Cells(3, {0})).Select
+Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+With Selection.Borders(xlEdgeLeft)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeTop)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeBottom)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeRight)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlInsideVertical)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideHorizontal)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+Range("A5", ActiveSheet.Cells(7, {1})).Select
+Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+With Selection.Borders(xlEdgeLeft)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeTop)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeBottom)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlEdgeRight)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlMedium
+End With
+With Selection.Borders(xlInsideVertical)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+With Selection.Borders(xlInsideHorizontal)
+    .LineStyle = xlContinuous
+    .ColorIndex = 0
+    .TintAndShade = 0
+    .Weight = xlThin
+End With
+Range("A1").Select
+Selection.Font.Bold = True
+With Selection.Font
+    .Name = "Calibri"
+    .Size = 12
+    .Strikethrough = False
+    .Superscript = False
+    .Subscript = False
+    .OutlineFont = False
+    .Shadow = False
+    .Underline = xlUnderlineStyleNone
+    .ThemeColor = xlThemeColorLight1
+    .TintAndShade = 0
+    .ThemeFont = xlThemeFontMinor
+End With
+Range("A5").Select
+Selection.Font.Bold = True
+With Selection.Font
+    .Name = "Calibri"
+    .Size = 12
+    .Strikethrough = False
+    .Superscript = False
+    .Subscript = False
+    .OutlineFont = False
+    .Shadow = False
+    .Underline = xlUnderlineStyleNone
+    .ThemeColor = xlThemeColorLight1
+    .TintAndShade = 0
+    .ThemeFont = xlThemeFontMinor
+End With
+Range("A1").Select
+Application.ScreenUpdating = True
+End Sub
+)", sourceArrayLength, transformedArrayLength);
+
+    #pragma endregion
+
+    #pragma region "Clear format" macro code
+    
+    String^ clearFormatVbaCode = String::Format(LR"(
+Private Sub ClearFormatButton_Click()
+Application.ScreenUpdating = False
+Range("A1", ActiveSheet.Cells(7, {0})).Select
+Selection.ClearFormats
+Range("A1").Select
+Application.ScreenUpdating = True
+End Sub
+)", sourceArrayLength);
+    
+    #pragma endregion
+
+    auto vbaModule = excelWorkbook->VBProject->VBComponents->Add(VBIDE::vbext_ComponentType::vbext_ct_StdModule);
+    vbaModule->CodeModule->InsertLines(vbaModule->CodeModule->CountOfLines + 1, formatMacroVbaCode);
+    vbaModule->CodeModule->InsertLines(vbaModule->CodeModule->CountOfLines + 1, clearFormatVbaCode);
+
+    // Macro button
+
+    Excel::Range^ buttonRange = excelActiveSheet->Range[excelActiveSheet->Cells[10, 1], excelActiveSheet->Cells[11, 4]];
+
+    auto sheetButtons = safe_cast<Excel::Buttons^>(excelActiveSheet->Buttons(typeMissing));
+    auto button = sheetButtons->Add(safe_cast<double>(buttonRange->Left),
+        safe_cast<double>(buttonRange->Top),
+        safe_cast<double>(buttonRange->Width),
+        safe_cast<double>(buttonRange->Height));
+    button->Name = L"FormatButton";
+    button->Caption = L"Форматировать таблицу";
+    button->OnAction = L"FormatButton_Click";
+
+    buttonRange = excelActiveSheet->Range[excelActiveSheet->Cells[10, 6], excelActiveSheet->Cells[11, 9]];
+
+    button = sheetButtons->Add(safe_cast<double>(buttonRange->Left),
+        safe_cast<double>(buttonRange->Top),
+        safe_cast<double>(buttonRange->Width),
+        safe_cast<double>(buttonRange->Height));
+    button->Name = L"ClearFormatButton";
+    button->Caption = L"Очистить форматирование";
+    button->OnAction = L"ClearFormatButton_Click";
+
+    // Save file
+
+    Object^ filename = Path::Combine(Directory::GetCurrentDirectory(), L"1dim_array.xlsm");
+    excelWorkbook->SaveAs(filename, Excel::XlFileFormat::xlOpenXMLWorkbookMacroEnabled,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing, Excel::XlSaveAsAccessMode::xlNoChange, typeMissing,
+        typeMissing, typeMissing, typeMissing,
+        typeMissing);
+
+    excelApplication->Visible = true;
+}

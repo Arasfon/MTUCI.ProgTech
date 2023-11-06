@@ -300,7 +300,7 @@ namespace Labs {
 			this->MaximizeBox = false;
 			this->Name = L"Task2SolutionForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Лабораторные работы №2–5: Решение";
+			this->Text = L"Лабораторные работы №2–6: Решение";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &Task2SolutionForm::Task2SolutionForm_FormClosed);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->SourceDataGridView))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ResultDataGridView))->EndInit();

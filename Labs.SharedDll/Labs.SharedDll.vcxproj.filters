@@ -24,7 +24,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="Interop\Interop.VBIDE.5.3.dll">
+      <Filter>Interop</Filter>
+    </CopyFileToFolders>
     <CopyFileToFolders Include="Interop\Interop.ADOX.6.0.dll">
+      <Filter>Interop</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="Interop\Interop.Microsoft.Office.Interop.Excel.1.9.dll">
       <Filter>Interop</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="Interop\Interop.Microsoft.Office.Interop.Word.8.7.dll">

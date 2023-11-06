@@ -50,6 +50,7 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
 
     Tasks::FillAccessDb(arr, trasformedArr, n, m);
     Tasks::FillWordDocument(arr, trasformedArr, n, m);
+    Tasks::FillExcelBook(arr, trasformedArr, n, m);
 
     delete[] trasformedArr;
 

@@ -65,5 +65,10 @@ namespace Labs::SharedDll
 
         // Сортирует массив с помощью оптимизированной сортировки пузырьком
         static void OptimizedBubbleSort(double* arr, const int arrayLength);
+
+        // Лабораторная работа №6
+
+        // Заполняет таблицы в книге Microsoft Excel содержимым исходного и трансформированного одномерного массива
+        static void FillExcelBook(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength);
     };
 }
