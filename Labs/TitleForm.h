@@ -122,7 +122,7 @@ namespace Labs {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(500, 19);
 			this->label5->TabIndex = 4;
-			this->label5->Text = L"Проверил: к.п.н., доцент Гуриков С. Р.";
+			this->label5->Text = L"Проверил: к.п.н., доцент кафедры \"Информатика\" Гуриков С. Р.";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// Task1Button
