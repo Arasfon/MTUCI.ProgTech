@@ -129,9 +129,9 @@ namespace Labs {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(12, 95);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(125, 15);
+			this->label2->Size = System::Drawing::Size(180, 15);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Полученный массив:";
+			this->label2->Text = L"Трансформированный массив:";
 			// 
 			// ResultDataGridView
 			// 
