@@ -4,7 +4,7 @@ using namespace System::Windows::Forms;
 
 namespace Labs::SharedDll
 {
-    public ref class Tasks sealed
+    public ref class Tasks1 sealed
     {
     public:
         // Лабораторная работа №1
@@ -32,6 +32,9 @@ namespace Labs::SharedDll
 
         // Выводит массив в DataGridView
         static void OutputArray(DataGridView^ dataGridView, double* arr, const int length);
+
+        // Выводит массив в DataGridView
+        static void OutputArray(DataGridView^ dataGridView, int* arr, const int length);
 
         // Трансформирует массив, получая новый из тех элементов исходного массива, значения которых по модулю меньше найденного максимального положительного элемента.
         static double* TransformArray(const double* arr, const int length, const double maxPositive, int% transformedLength);

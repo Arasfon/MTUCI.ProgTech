@@ -135,10 +135,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Tasks.h" />
+    <ClInclude Include="Tasks1.h" />
+    <ClInclude Include="Tasks2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tasks.cpp" />
+    <ClCompile Include="Tasks1.cpp" />
+    <ClCompile Include="Tasks2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

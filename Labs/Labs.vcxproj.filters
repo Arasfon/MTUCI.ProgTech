@@ -19,6 +19,9 @@
     <Filter Include="Task2">
       <UniqueIdentifier>{a58a9a19-1d13-449c-97f6-df1204e3d299}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Task7">
+      <UniqueIdentifier>{f59f5ca4-89f5-4167-90ce-c9a2cde706e7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Title">
       <UniqueIdentifier>{0ff7bcf7-3649-48ff-b73a-781c0047095b}</UniqueIdentifier>
     </Filter>
@@ -50,6 +53,12 @@
     <ClInclude Include="TitleForm.h">
       <Filter>Title</Filter>
     </ClInclude>
+    <ClInclude Include="Task7AssignmentForm.h">
+      <Filter>Task7</Filter>
+    </ClInclude>
+    <ClInclude Include="Task7SolutionForm.h">
+      <Filter>Task7</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Labs.cpp">
@@ -75,6 +84,12 @@
     </ClCompile>
     <ClCompile Include="TitleForm.cpp">
       <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Task7AssignmentForm.cpp">
+      <Filter>Task7</Filter>
+    </ClCompile>
+    <ClCompile Include="Task7SolutionForm.cpp">
+      <Filter>Task7</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

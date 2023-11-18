@@ -1,4 +1,4 @@
-#include "Tasks.h"
+#include "Tasks1.h"
 
 using namespace System;
 using namespace System::Globalization;
@@ -12,17 +12,17 @@ using namespace Labs::SharedDll;
 
 // Лабораторная работа №1
 
-bool Tasks::ReadDouble(TextBox^ textBox, double% value)
+bool Tasks1::ReadDouble(TextBox^ textBox, double% value)
 {
     return Double::TryParse(textBox->Text, value);
 }
 
-void Tasks::WriteDouble(double value, TextBox^ textBox)
+void Tasks1::WriteDouble(double value, TextBox^ textBox)
 {
     textBox->Text = value.ToString(L"F3");
 }
 
-double Tasks::PentagonArea(const double x1, const double y1,
+double Tasks1::PentagonArea(const double x1, const double y1,
                    const double x2, const double y2,
                    const double x3, const double y3,
                    const double x4, const double y4,
@@ -33,14 +33,14 @@ double Tasks::PentagonArea(const double x1, const double y1,
         TriangleArea(x1, y1, x4, y4, x5, y5);
 }
 
-double Tasks::TriangleArea(const double x1, const double y1, const double x2, const double y2, const double x3, const double y3)
+double Tasks1::TriangleArea(const double x1, const double y1, const double x2, const double y2, const double x3, const double y3)
 {
     return 1.0 / 2 * Math::Abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));
 }
 
 // Лабораторная работа №2
 
-double* Tasks::GenerateArray(const int length)
+double* Tasks1::GenerateArray(const int length)
 {
     Random^ random = gcnew Random();
 
@@ -52,7 +52,7 @@ double* Tasks::GenerateArray(const int length)
     return arr;
 }
 
-void Tasks::OutputArray(DataGridView^ dataGridView, double* arr, const int length)
+void Tasks1::OutputArray(DataGridView^ dataGridView, double* arr, const int length)
 {
     dataGridView->RowCount = 2;
     dataGridView->ColumnCount = length;
@@ -64,7 +64,19 @@ void Tasks::OutputArray(DataGridView^ dataGridView, double* arr, const int lengt
     }
 }
 
-double* Tasks::TransformArray(const double* arr, const int length, const double maxPositive, int% transformedLength)
+void Tasks1::OutputArray(DataGridView^ dataGridView, int* arr, const int length)
+{
+    dataGridView->RowCount = 2;
+    dataGridView->ColumnCount = length;
+
+    for (int i = 0; i < length; i++)
+    {
+        dataGridView->Rows[0]->Cells[i]->Value = String::Format(L"[{0}]", i);
+        dataGridView->Rows[1]->Cells[i]->Value = arr[i].ToString();
+    }
+}
+
+double* Tasks1::TransformArray(const double* arr, const int length, const double maxPositive, int% transformedLength)
 {
     double* newArr = new double[length];
     transformedLength = 0;
@@ -78,7 +90,7 @@ double* Tasks::TransformArray(const double* arr, const int length, const double 
     return newArr;
 }
 
-double Tasks::GetMaxPositive(const double* arr, const int n)
+double Tasks1::GetMaxPositive(const double* arr, const int n)
 {
     double maxPositive = 0;
 
@@ -93,7 +105,7 @@ double Tasks::GetMaxPositive(const double* arr, const int n)
 
 // Лабораторная работа №3
 
-void Tasks::CreateAccessDbFile()
+void Tasks1::CreateAccessDbFile()
 {
     if (File::Exists(L"1dim_array.accdb"))
         File::Delete(L"1dim_array.accdb");
@@ -105,7 +117,7 @@ void Tasks::CreateAccessDbFile()
     Marshal::FinalReleaseComObject(catalog);
 }
 
-void Tasks::CreateAccessDbTables()
+void Tasks1::CreateAccessDbTables()
 {
     OleDbConnection connection(ConnectionString);
     connection.Open();
@@ -125,7 +137,7 @@ void Tasks::CreateAccessDbTables()
     command.ExecuteNonQuery();
 }
 
-void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
+void Tasks1::FillAccessDb(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
 {
     if (!File::Exists(L"1dim_array.accdb"))
         return;
@@ -164,7 +176,7 @@ void Tasks::FillAccessDb(const double* sourceArray, const double* transformedArr
 
 // Лабораторная работа №4
 
-void Tasks::FillWordDocument(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
+void Tasks1::FillWordDocument(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
 {
     Object^ typeMissing = Type::Missing;
     Object^ wdWord9TableBehavior = Word::WdDefaultTableBehavior::wdWord9TableBehavior;
@@ -224,7 +236,7 @@ void Tasks::FillWordDocument(const double* sourceArray, const double* transforme
 
 // Лабораторная работа №5
 
-void Tasks::RemoveArrayItem(const double item, double* arr, int& arrayLength)
+void Tasks1::RemoveArrayItem(const double item, double* arr, int& arrayLength)
 {
     int offset = 0;
 
@@ -239,7 +251,7 @@ void Tasks::RemoveArrayItem(const double item, double* arr, int& arrayLength)
     arrayLength -= offset;
 }
 
-void Tasks::OptimizedBubbleSort(double* arr, const int arrayLength)
+void Tasks1::OptimizedBubbleSort(double* arr, const int arrayLength)
 {
     for (int i = 0; i < arrayLength; i++)
     {
@@ -264,7 +276,7 @@ void Tasks::OptimizedBubbleSort(double* arr, const int arrayLength)
 
 // Лабораторная работа №6
 
-void Tasks::FillExcelBook(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
+void Tasks1::FillExcelBook(const double* sourceArray, const double* transformedArray, const int sourceArrayLength, const int transformedArrayLength)
 {
     Object^ typeMissing = Type::Missing;
 

@@ -29,10 +29,10 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
         return;
     }
 
-    double* arr = Tasks::GenerateArray(n);
-    Tasks::OutputArray(SourceDataGridView, arr, n);
+    double* arr = Tasks1::GenerateArray(n);
+    Tasks1::OutputArray(SourceDataGridView, arr, n);
 
-    const double maxPositive = Tasks::GetMaxPositive(arr, n);
+    const double maxPositive = Tasks1::GetMaxPositive(arr, n);
 
     if (maxPositive == 0)
     {
@@ -45,12 +45,12 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
 
     MaxPositiveLabel->Text = String::Format(L"Макс. положительное число: {0:F3}", maxPositive);
 
-    double* trasformedArr = Tasks::TransformArray(arr, n, maxPositive, m);
-    Tasks::OutputArray(ResultDataGridView, trasformedArr, m);
+    double* trasformedArr = Tasks1::TransformArray(arr, n, maxPositive, m);
+    Tasks1::OutputArray(ResultDataGridView, trasformedArr, m);
 
-    Tasks::FillAccessDb(arr, trasformedArr, n, m);
-    Tasks::FillWordDocument(arr, trasformedArr, n, m);
-    Tasks::FillExcelBook(arr, trasformedArr, n, m);
+    Tasks1::FillAccessDb(arr, trasformedArr, n, m);
+    Tasks1::FillWordDocument(arr, trasformedArr, n, m);
+    Tasks1::FillExcelBook(arr, trasformedArr, n, m);
 
     delete[] trasformedArr;
 
@@ -71,15 +71,15 @@ void Task2SolutionForm::CalculateButton_Click(Object^ sender, EventArgs^ e)
     std::copy(&arr[0], &arr[n], removedItemArray);
     int removedItemArrayLength = n;
 
-    Tasks::RemoveArrayItem(itemToRemove, removedItemArray, removedItemArrayLength);
-    Tasks::OutputArray(RemovedArrayItemDataGridView, removedItemArray, removedItemArrayLength);
+    Tasks1::RemoveArrayItem(itemToRemove, removedItemArray, removedItemArrayLength);
+    Tasks1::OutputArray(RemovedArrayItemDataGridView, removedItemArray, removedItemArrayLength);
 
     RemovedItemTitleLabel->Text = String::Format("Исходный массив после удаления из него элемента {0}:", itemToRemove);
 
     delete[] removedItemArray;
 
-    Tasks::OptimizedBubbleSort(arr, n);
-    Tasks::OutputArray(SortedArrayDataGridView, arr, n);
+    Tasks1::OptimizedBubbleSort(arr, n);
+    Tasks1::OutputArray(SortedArrayDataGridView, arr, n);
 
     delete[] arr;
 }
@@ -88,8 +88,8 @@ void Task2SolutionForm::CreateDbButton_Click(Object^ sender, EventArgs^ e)
 {
     try
     {
-        Tasks::CreateAccessDbFile();
-        Tasks::CreateAccessDbTables();
+        Tasks1::CreateAccessDbFile();
+        Tasks1::CreateAccessDbTables();
         MessageBox::Show(L"База данных создана и инициализирована.", L"Успешное создание базы данных", MessageBoxButtons::OK, MessageBoxIcon::Information);
     }
     catch (Exception^ ex)

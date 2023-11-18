@@ -154,6 +154,12 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Task7AssignmentForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Task7SolutionForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="TitleForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -175,6 +181,8 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Labs.cpp" />
+    <ClCompile Include="Task7AssignmentForm.cpp" />
+    <ClCompile Include="Task7SolutionForm.cpp" />
     <ClCompile Include="TitleForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -200,6 +208,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Task7AssignmentForm.resx">
+      <DependentUpon>Task7AssignmentForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Task7SolutionForm.resx">
+      <DependentUpon>Task7SolutionForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TitleForm.resx">
       <DependentUpon>TitleForm.h</DependentUpon>
     </EmbeddedResource>

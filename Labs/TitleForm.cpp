@@ -3,6 +3,7 @@
 #include "TitleForm.h"
 #include "Task1AssignmentForm.h"
 #include "Task2AssignmentForm.h"
+#include "Task7AssignmentForm.h"
 
 using namespace Labs;
 
@@ -15,6 +16,12 @@ void TitleForm::Task1Button_Click(Object^ sender, EventArgs^ e)
 void TitleForm::Task2Button_Click(Object^ sender, EventArgs^ e)
 {
     (gcnew Task2AssignmentForm())->Show();
+    this->Close();
+}
+
+void TitleForm::Task7Button_Click(Object^ sender, EventArgs^ e)
+{
+    (gcnew Task7AssignmentForm())->Show();
     this->Close();
 }
 

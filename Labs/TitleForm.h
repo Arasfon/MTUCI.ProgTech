@@ -40,6 +40,8 @@ namespace Labs {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::Button^ Task2Button;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ Task7Button;
+
 
 
 	private:
@@ -64,6 +66,7 @@ namespace Labs {
 			this->Task1Button = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Task2Button = (gcnew System::Windows::Forms::Button());
+			this->Task7Button = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -139,6 +142,8 @@ namespace Labs {
 			// 
 			this->tableLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->tableLayoutPanel1->AutoSize = true;
+			this->tableLayoutPanel1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->tableLayoutPanel1->ColumnCount = 2;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
@@ -146,11 +151,13 @@ namespace Labs {
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->Task2Button, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->Task1Button, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->Task7Button, 0, 1);
 			this->tableLayoutPanel1->Location = System::Drawing::Point(12, 236);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
-			this->tableLayoutPanel1->RowCount = 1;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(500, 48);
+			this->tableLayoutPanel1->RowCount = 2;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(500, 96);
 			this->tableLayoutPanel1->TabIndex = 6;
 			// 
 			// Task2Button
@@ -162,6 +169,17 @@ namespace Labs {
 			this->Task2Button->Text = L"Лабораторные работы №2–6";
 			this->Task2Button->UseVisualStyleBackColor = true;
 			this->Task2Button->Click += gcnew System::EventHandler(this, &TitleForm::Task2Button_Click);
+			// 
+			// Task7Button
+			// 
+			this->tableLayoutPanel1->SetColumnSpan(this->Task7Button, 2);
+			this->Task7Button->Location = System::Drawing::Point(3, 51);
+			this->Task7Button->Name = L"Task7Button";
+			this->Task7Button->Size = System::Drawing::Size(494, 42);
+			this->Task7Button->TabIndex = 7;
+			this->Task7Button->Text = L"Лабораторная работа №7";
+			this->Task7Button->UseVisualStyleBackColor = true;
+			this->Task7Button->Click += gcnew System::EventHandler(this, &TitleForm::Task7Button_Click);
 			// 
 			// label6
 			// 
@@ -180,7 +198,7 @@ namespace Labs {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(524, 296);
+			this->ClientSize = System::Drawing::Size(524, 344);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Controls->Add(this->label5);
@@ -200,11 +218,13 @@ namespace Labs {
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &TitleForm::TitleForm_FormClosed);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void Task1Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Task2Button_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Task7Button_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void TitleForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
-    };
+};
 }

@@ -14,12 +14,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tasks.h">
+    <ClInclude Include="Tasks1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tasks2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tasks.cpp">
+    <ClCompile Include="Tasks1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
